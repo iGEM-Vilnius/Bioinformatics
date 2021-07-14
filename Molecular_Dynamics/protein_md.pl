@@ -30,16 +30,14 @@ my $input = shift @ARGV;
 `gmx solvate -cp protein_box.gro -cs spc216.gro -o protein_solvate.gro -p protein.top`;
 
 # Adding ions to neutralize the system
-# ions.mdp file downloaded from https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/ions.mdp
-`wget https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/ions.mdp`;
+# ions.mdp file initially downloaded from https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/ions.mdp
 `gmx grompp -f ions.mdp -c protein_solvate.gro -p protein.top -o ions.tpr`;
 # -neutral adds enough ions to neutralize the system
 # Selecting Group 13 - SOL
 `gmx genion -s ions.tpr -o protein_solvate_ions.gro -p protein.top -neutral`;
 
 # Energy minimization to stabilize the system and avoid steric clashes
-# em.mdp file downloaded from https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/em.mdp
-`wget https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/em.mdp`;
+# em.mdp file initially downloaded from https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/em.mdp
 `gmx grompp -f em.mdp -c protein_solvate_ions.gro -p protein.top -o em.tpr`;
 `gmx mdrun -v -deffnm em`;
 # -deffnm sets default name to all output files
@@ -55,8 +53,7 @@ my $input = shift @ARGV;
 # After constant pressure is applied
 
 # isothermal phase
-# nvt.mdp file is needed from https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/nvt.mdp
-`wget https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/nvt.mdp`;
+# nvt.mdp file initially downloaded needed from https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/nvt.mdp
 # 100 ps is generally enough to reach 300 K temperature
 `gmx grompp -f nvt.mdp -c em.gro -r em.gro -p protein.top -o nvt.tpr`;
 `gmx mdrun -v -deffnm nvt`;
@@ -66,8 +63,7 @@ my $input = shift @ARGV;
 `gmx energy -f nvt.edr -o temperature.xvg`;
 
 # isobaric phase
-# npt.mdp file from https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/npt.mdp
-`wget https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/npt.mdp`;
+# npt.mdp initially downloaded file from https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/npt.mdp
 # using 100 ps timeframe for this phase too
 `gmx grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p protein.top -o npt.tpr`;
 `gmx mdrun -v -deffnm npt`;
@@ -82,11 +78,7 @@ my $input = shift @ARGV;
 # Compare the density value with experimental
 
 # Running MD
-# Duration 1 ns (demo version)
-# Optimally 30 ns (if RMSD is a straight line) or 50/60 ns (if RMSD is not a straight line)
-# md.mdp file from https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/md.mdp
-`wget https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/md.mdp`;
-
+# md.mdp file initially downloaded from https://bitbucket.org/Bioinformatics-Review/md-simulation-files/raw/8f54e7a38b392f78f606bffb102e8e15757fbbb8/md.mdp
 `gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p protein.top -o md_0_1.tpr`;
 `gmx mdrun -v -deffnm md_0_1`;
 
