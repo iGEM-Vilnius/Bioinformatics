@@ -15,9 +15,9 @@ my $input = shift @ARGV;
 
 # Converting PDB to gmx and generating topology
 # -ignh - ignores hydrogen atoms that are in the coordinate file
-my $pdb2gmx = 'gmx pdb2gmx -f protein.pdb -o protein.gro -p protein.top -ignh -ff amber14sb -water tip3p';
+my $pdb2gmx = 'gmx pdb2gmx -f protein.pdb -o protein.gro -p protein.top -ignh -ff amber94 -water tip3p';
 system $pdb2gmx;
-# Recommended force-field: AMBER14
+# Recommended force-field: AMBER94
 # Recommended water model: TIP3 (chosen accordingly to force-field)
 
 # Defining a box
