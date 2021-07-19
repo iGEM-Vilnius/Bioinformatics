@@ -38,7 +38,7 @@ my $grompp = 'gmx grompp -f ions.mdp -c protein_solvate.gro -p protein.top -o io
 system $grompp;
 # -neutral adds enough ions to neutralize the system
 # Selecting Group 13 - SOL
-my $genion = 'echo SOL | gmx genion -s ions.tpr -o protein_solvate_ions.gro -p protein.top -neutral';
+my $genion = 'echo SOL | gmx genion -s ions.tpr -o protein_solvate_ions.gro -pname NA -nname CL -conc 0.15 -neutral -p protein.top';
 system $genion;
 
 # Energy minimization to stabilize the system and avoid steric clashes
