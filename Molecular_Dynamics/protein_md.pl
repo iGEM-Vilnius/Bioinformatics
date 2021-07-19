@@ -38,7 +38,7 @@ my $grompp = 'gmx grompp -f ions.mdp -c protein_solvate.gro -p protein.top -o io
 system $grompp;
 # -neutral adds enough ions to neutralize the system
 # Selecting Group 13 - SOL
-my $genion = 'gmx genion -s ions.tpr -o protein_solvate_ions.gro -p protein.top -neutral';
+my $genion = 'echo SOL | gmx genion -s ions.tpr -o protein_solvate_ions.gro -p protein.top -neutral';
 system $genion;
 
 # Energy minimization to stabilize the system and avoid steric clashes
@@ -53,7 +53,7 @@ system $mdrun;
 
 # Plotting Epot using em.edr file
 # selecting type '10 0'
-my $energy = 'gmx energy -f em.edr -o potential.xvg';
+my $energy = 'echo 10 0 | gmx energy -f em.edr -o potential.xvg';
 system $energy;
 
 # Equilibration of ions and solvent around the protein
@@ -70,7 +70,7 @@ system $mdrun;
 
 # Plotting temperature progression
 # selecting type '16 0'
-$energy = 'gmx energy -f nvt.edr -o temperature.xvg';
+$energy = 'echo 16 0 | gmx energy -f nvt.edr -o temperature.xvg';
 system $energy;
 
 # isobaric phase
@@ -83,12 +83,12 @@ system $mdrun;
 
 # Plotting pressure progression
 # selecting type '18 0'
-$energy = 'gmx energy -f npt.edr -o pressure.xvg';
+$energy = 'echo 18 0 | gmx energy -f npt.edr -o pressure.xvg';
 system $energy;
 
 # Plotting graph for density
 # selecting type '24 0'
-$energy = 'gmx energy -f npt.edr -o density.xvg';
+$energy = 'echo 24 0 | gmx energy -f npt.edr -o density.xvg';
 system $energy;
 # Compare the density value with experimental
 
