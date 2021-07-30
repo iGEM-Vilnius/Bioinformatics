@@ -19,7 +19,7 @@ to install this version of Python package manager.
 * Activate conda environment  
 `conda activate ramachandrawx`
 
-* Install dependencies
+* Install dependencies  
 `conda install biopython`  
 `conda install matplotlib`  
 `conda install rich`  
@@ -50,7 +50,7 @@ In order to create a new colormap from the palette that contains N colors of the
 
 ### Element color
 
-By default the program uses #002733 (color similar to [Daintree](https://chir.ag/projects/name-that-color/#002733) to color dots, numbers and labels on axles.  
+By default the program uses #002733 (color similar to [Daintree](https://chir.ag/projects/name-that-color/#002733)) to color dots, numbers and labels on axles.  
 
 Custom element color can be set using  
 `-el_color '#[hex_color_code]'`  
@@ -77,7 +77,7 @@ The PNG file with white background will be generated.
 By default the opacity of the colormap is set to 1 (the brightest option).  
 
 The opacity of the colormap can be altered using  
-`-a [float value from interval [0;1]]`
+`-a [float_from_[0;1]]`
 
 ### Resolution of the plot
 
