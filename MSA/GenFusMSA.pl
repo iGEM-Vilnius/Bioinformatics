@@ -11,7 +11,7 @@ use warnings;
 
 # Output: one MSA file (.a3m) for fusion protein modelling
 
-# Example run: ./generate_msa.pl 4CL_fullQT.a3m CHS_fullQT.a3m EAAAK 1
+# Example run: ./GenFusMSA.pl 4CL_fullQT.a3m CHS_fullQT.a3m EAAAK 1
 # After running this command the prolonged MSA when linker is EAAAK is printed
 # to the terminal window.
 
