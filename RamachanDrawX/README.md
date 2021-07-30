@@ -97,3 +97,5 @@ The change of the output file's location can be done using
 [MIT](https://choosealicense.com/licenses/mit/)
 
 ## References
+
+This tool is intended to support [The Small Tools Manifesto for Bioinformatics](https://github.com/pjotrp/bioinformatics).
