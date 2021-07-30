@@ -20,16 +20,16 @@ to install this version of Python package manager.
 `conda activate ramachandrawx`
 
 * Install dependencies
-`conda install biopython`
-`conda install matplotlib`
-`conda install rich`
+`conda install biopython`  
+`conda install matplotlib`  
+`conda install rich`  
 
 ## Example usage
 
 RamachanDrawX can be run using command:  
-`python RamachanDrawX.py PDB/4Cl/pdb`
+`python RamachanDrawX.py PDB/4CL.pdb`
 
-This command will generate an output file R_plot.png in PNG folder for PDB structure 
+This command will generate an output file R_plot.png in `./PNG` folder for PDB structure 
 of 4CL protein.
 
 ## Customization arguments
@@ -39,7 +39,7 @@ Manual for the customization arguments can also be found using
 
 ### Colormap
 
-By default the program uses color palette of Vilnius-Lithuania iGEM 2021 team.
+By default the program uses color palette of [Vilnius-Lithuania iGEM 2021 team](https://2021.igem.org/Team:Vilnius-Lithuania).
 
 Custom colormap can be set using  
 `-cmap` or `--color_map`  
@@ -54,7 +54,7 @@ By default the program uses #002733 (color similar to [Daintree](https://chir.ag
 
 Custom element color can be set using  
 `-el_color '#[hex_color_code]'`  
-or
+or  
 `-el_color [color_name]`  
 
 ### Font
@@ -84,7 +84,7 @@ The opacity of the colormap can be altered using
 By default the program produces PNG file with aresolution of 1000 dots per inch.  
 
 The resolution can be changed using  
-`-dpi [int_number]`
+`-dpi [integer]`
 
 ### Output location
 
