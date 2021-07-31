@@ -11,11 +11,11 @@ Download and install [Perl](https://www.perl.org/get.html).
 ## Usage
 
 Inputs for this program are:  
-1. Full query-template .a3m file of the first protein  
-2. Full query-template .a3m file of the second protein  
-3. Peptide linker sequence
-4. Repeats of the linker
-5. Option to extend the linker with 10 glycine aminoacids on both sides of the linker
+1. `-i1 .a3m_file` full query-template .a3m file of the first protein  
+2. `-i2 .a3m_file` full query-template .a3m file of the second protein  
+3. `-l str` peptide linker sequence
+4. `[-n int]` repeats of the linker
+5. `[-p int]` option to extend the linker with 10 glycine aminoacids on both sides of the linker
 
 These .a3m files can be generated using external software. The program was tested with MSA
 files that were generated using [HHblits](https://toolkit.tuebingen.mpg.de/tools/hhblits) program. 
