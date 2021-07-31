@@ -2,8 +2,9 @@
 
 use strict;
 use warnings;
+use Getopt::Long;
 
-# Script that extracts from two MSA files sequences that share the same TaxID.
+# Script that extracts sequences that share the same TaxID from two MSA files.
 
 # Input: two MSA (.a3m) files, linker, boolean option to enlong linker
 
@@ -15,10 +16,38 @@ use warnings;
 # After running this command the prolonged MSA when linker is EAAAK is printed
 # to the terminal window.
 
-my $in1 = shift @ARGV;
-my $in2 = shift @ARGV;
-my $linker = shift @ARGV;
-my $prolonged = shift @ARGV;
+# Subroutine that prints the usage message
+sub usage(){
+    my $EOF = "$0 extracts sequences that share the same TaxID ".
+        "from two MSA files.\n".
+        "usage: $0 -i1 file -i2 file -l str [-n int] [p int] [-h]\n".
+        "positional arguments\n".
+        "\t-i1 file\t: first input .a3m file\n".
+        "\t-i2 file\t: second input .a3m file\n".
+        "\t-l str\t\t: peptide linker\n".
+        "optional arguments\n".
+        "\t-n int\t\t: how many repeats of linker (default: 1)\n".
+        "\t-p int\t\t: boolean whether to extend the linker (default: 0)\n".
+        "\t-h\t\t: this (help) message\n".
+        "example: $0 -i1 4CL_fullQT.a3m -i2 CHS_fullQT.a3m -l EAAAK\n";
+    print STDERR "$EOF";
+    exit;
+}
+
+# Collecting options
+GetOptions(
+    'i1=s' => \my $in1,
+    'i2=s' => \my $in2,
+    'linker=s' => \my $linker,
+    'n=s' => \my $n,
+    'prolonged=s' => \my $prolonged,
+    'help=s' => \my $help
+) or usage();
+
+# Checking if all positional arguments are present or help is called
+if((!defined($in1))|(!defined($in2))|(!defined($linker))|(defined($help))){
+    usage();
+}
 
 my %taxid_1 = ();
 my %matched = ();
@@ -27,7 +56,7 @@ my $num1 = 0;
 my $num2 = 0;
 
 # Reading the first input .a3m file
-open(my $inp, '<', $in1);
+open(my $inp, '<', $in1) || die "$in1 file not found\n";
 $/ = "\n>";
 while( <$inp> ) {
     /^>?([^\n]*)\n([^>]*)/;
@@ -49,7 +78,7 @@ while( <$inp> ) {
 close($inp);
 
 # Reading the second input .a3m file
-open($inp, '<', $in2);
+open($inp, '<', $in2) || die "$in2 file not found\n";;
 while( <$inp> ) {
     /^>?([^\n]*)\n([^>]*)/;
     my( $header, $sequence ) = ( $1, $2 );
@@ -87,16 +116,16 @@ for my $id (reverse sort keys(%matched)){
     my $fusion = substr($matched{$id}, 0, length($taxid_1{$id}));
     if($prolonged){
         $fusion .= 'G' x 10;
-        $fusion .= $linker;
+        $fusion .= $linker x $n;
         $fusion .= 'G' x 10;
     }else{
-        $fusion .= $linker;
+        $fusion .= $linker x $n;
     }
-    
+
     $fusion .= substr($matched{$id}, length($taxid_1{$id}), length($matched{$id}));
-    
+
     $matched{$id} = $fusion;
-    
+
     # Printing output MSA
     print '>', $id, "\n", $matched{$id}, "\n";
 }
