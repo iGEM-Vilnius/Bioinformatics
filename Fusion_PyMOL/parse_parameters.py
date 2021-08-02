@@ -2,10 +2,6 @@
 
 # Do parsing of such parameters that could be passed by file
 def parse_parameters(file, par):
-#    global fusion_file, first_protein, first_length, active_site_residues_1
-#    global second_protein, second_length, active_site_residues_2
-#    global linker, linker_repeats, linker_length, colors
-    
     f = open(file, 'r')
 
     for line in f:
