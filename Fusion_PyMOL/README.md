@@ -81,3 +81,6 @@ provided in parameters file as the first ones) and visualise them in the PyMOL.
 ### center_of_mass.py
 A module that is required for `calculate_distance.py` module to pick points that would 
 represent the active sites for distance calculation. This script was obtained from [PyMOL Wiki](https://pymolwiki.org/index.php/Center_of_mass).
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
