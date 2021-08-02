@@ -6,6 +6,14 @@ This directory contains several tools to use for fusion protein processing.
 Download and install [PyMOL](https://pymol.org/2/?#download) in your system. The tools were 
 tested on MacOS Big Sur 11.1, yet these scripts should work on Linux systems as well. 
 
+## Usage
+
+The coloring is done using:  
+`pymol main.py -- [parameter_file]`  
+
+Example run:  
+`pymol main.py -- param.txt` 
+
 ## Parameter file
 
 All configurations about the coloring are written in the parameter file. This file contains attributes 
@@ -43,7 +51,7 @@ linker_repeats: 1
 colors: 0x002733 0x054d54 0x1b8489 0xef9f8d 0xfccec0 0x00fbff
 ```
 
-#### Colors
+### Colors
 Colors should be provided in the format: `0x[hex_code]`. The script takes in 6 colors. 
 
 1. The color of the darkest tone used for labels
@@ -53,14 +61,23 @@ Colors should be provided in the format: `0x[hex_code]`. The script takes in 6 c
 5. The color that is used to color active sites
 6. The color for linker
 
-## color_fusion.py
-A script that colors fusion protein system: the whole construct, the linker, and the active sites 
-of each of the fused proteins.  
+## Functions
+This repository contains functions that are used for fusion protein structure manipulation. This
+library provides possibility to **color** fusion protein system with a customizable palette 
+of colors, make a **structural alignment** with homolog (template) structures, and **calculate
+distance** between active sites of the fused proteins.  
 
-### Usage
+### parse_parameters.py
+A module that contains a function to parse attributes that are required for other modules.
 
-The coloring is done using:  
-`pymol color_fusion.py -- [parameter_file]`  
+### color_fusion.py
+A module that contains fucntions to color fusion protein system: the whole construct, the linker, 
+and the active sites of each of the fused proteins.   
 
-Example run:  
-`pymol color_fusion.py -- param.txt`  
+### calculate_distance.py
+A module that contains a function to calculate distance between active sites (that were 
+provided in parameters file as the first ones) and visualise them in the PyMOL.
+
+### center_of_mass.py
+A module that is required for `calculate_distance.py` module to pick points that would 
+represent the active sites for distance calculation. This script was obtained from [PyMOL Wiki](https://pymolwiki.org/index.php/Center_of_mass).
