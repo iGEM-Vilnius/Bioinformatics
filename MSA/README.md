@@ -26,4 +26,7 @@ This command generates MSA file for 4CL and CHS linked via prolonged EAAAK linke
 option to choose prolonged linker by glycines (by 10 on both sides of the linker) is set by the 
 last option (0 or 1).
 
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
 
