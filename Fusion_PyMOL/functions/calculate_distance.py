@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import pymol
 from pymol import cmd
-import center_of_mass
+from functions import center_of_mass
 
 # Subroutine that calculates distance between active sites when rigid linker
 # is used in the fusion protein system
