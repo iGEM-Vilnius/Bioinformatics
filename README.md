@@ -1,7 +1,7 @@
 # Bioinformatics tools
 
 This repository contains several tools for bioinformatics that were created and used by
-[Vilnius-Lithuania](https://2021.igem.org/Team:Vilnius-Lithuania) iGEM 2021 team.
+[Vilnius-Lithuania iGEM 2021 team](https://2021.igem.org/Team:Vilnius-Lithuania).
 
 ## Fusion PyMOL
 This directory contains scripts that are used for fusion protein visualisation using PyMOL.
