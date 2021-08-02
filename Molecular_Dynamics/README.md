@@ -4,7 +4,7 @@ This directory contains molecular dynamics bundle with .mdp files and Perl scrip
 be used for molecular dynamics simulations.
 
 ## Prerequisites
-Download and install [Perl](https://www.perl.org/get.html).
+Download and install [Perl](https://www.perl.org/get.html).  
 Install [GROMACS](https://manual.gromacs.org/documentation/current/install-guide/index.html).
 
 ## copy_dir.pl
