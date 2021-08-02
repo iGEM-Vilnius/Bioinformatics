@@ -3,9 +3,7 @@ import pymol
 from pathlib import Path
 from pymol import cmd
 
-import parse_parameters
-import color_fusion
-import calculate_distance
+from functions import parse_parameters, color_fusion, calculate_distance
 
 # Script that colors the residues of the active site and linker in fusion
 # protein system
