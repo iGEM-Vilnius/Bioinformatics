@@ -15,7 +15,7 @@ use warnings;
 # * eq.mdp file
 # * md.mdp file
 
-my $PATH_DSSP = '/Users/ieva/Downloads/dssp-2.3.0/mkdssp'
+my $PATH_DSSP = './dssp/mkdssp'
 
 my $protein_file = shift @ARGV;
 `cp $protein_file protein_or.pdb`;
