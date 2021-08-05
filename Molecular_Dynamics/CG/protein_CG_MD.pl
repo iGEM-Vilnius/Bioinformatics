@@ -15,7 +15,7 @@ use warnings;
 # * eq.mdp file
 # * md.mdp file
 
-my $PATH_DSSP = './dssp/mkdssp'
+my $PATH_DSSP = './dssp/mkdssp';
 
 my $protein_file = shift @ARGV;
 `cp $protein_file protein_or.pdb`;
@@ -33,7 +33,8 @@ my $protein_file = shift @ARGV;
 `gmx editconf -f protein_CG.pdb -d 1.0 -bt dodecahedron -o protein_CG.gro`;
 
 # Minimizing energy (log file keeps the potential energy score)
-`gmx grompp -f em.mdp -c protein_CG.gro -p protein.top -o 01-em.tpr`;
+# Topology file requires martini.itp file (downloaded from: http://cgmartini.nl/images/parameters/ITP/martini_v2.2.itp)
+`gmx grompp -f em.mdp -c protein_CG.gro -p protein.top -o 01-em.tpr -maxwarn 1`;
 `gmx mdrun -v -deffnm 01-em -s 01-em.tpr`;
 
 # Solvating system
@@ -49,8 +50,8 @@ open(FH, '>>', 'system.top') or die $!;
 print FH $line;
 
 # Perform minimization of solvated protein
-`gmx grompp -p system.top -c solvated.gro -f em.mdp -o 02-em.tpr -maxwarn 1`
-`gmx mdrun -v -deffnm 02-em -s 02-em.tpr`
+`gmx grompp -p system.top -c solvated.gro -f em.mdp -o 02-em.tpr -maxwarn 1`;
+`gmx mdrun -v -deffnm 02-em -s 02-em.tpr`;
 `gmx grompp -p system.top -c 02-em.gro -f eq.mdp -o equilibration.tpr -maxwarn 1`;
 `gmx mdrun -v -deffnm equilibration -s equilibration.tpr`;
 
