@@ -7,6 +7,8 @@ be used for molecular dynamics simulations.
 Download and install [Perl](https://www.perl.org/get.html).  
 Install [GROMACS](https://manual.gromacs.org/documentation/current/install-guide/index.html).
 
+DSSP (for coarse-grained molecular dynamics) that can be downloaded from [here](https://github.com/cmbi/dssp).
+
 ## Atomic simulations
 The files required for atomic molecular dynamics simulations can be found in `atomic` folder. 
 It contains 4 Perl scripts to run simulations and .mdp files that contain parameters for MD
@@ -40,13 +42,20 @@ The command to use:
 
 ## Coarse-grained simulations
 The files required for coarse-grained molecular dynamics simulations can be found in 
-`CG` folder. This folder contains [`martinize.py`](http://cgmartini.nl/index.php/tools2/proteins-and-bilayers/204-martinize)
+`CG` folder. This folder contains protein_CG_MD.pl script that uses
+[`martinize.py`](http://cgmartini.nl/index.php/tools2/proteins-and-bilayers/204-martinize)
 script adjusted for Python3, water.gro file (downloaded from [link](http://cgmartini.nl/index.php/downloads/example-applications/63-pure-water-solvent) in
 MARTINI 2 [Protein tutorial](http://cgmartini.nl/index.php/tutorials-general-introduction-gmx5/proteins-gmx5) 
 page) and .mdp files: em.mdp, md.mdp were taken from the folder `atomic` that
 is devoted for atomic molecular dynamics simulations and eq.mdp was taken from the worked
 files [archyve](http://cgmartini.nl/images/stories/tutorial/2017/protein-tutorial-v2016.3/soluble-protein/ubiquitin.tgz)
 that can be found in the tutorial link.
+
+### protein_CG_MD.pl
+A script that runs coarse-grained molecular dynamics workflow.  
+
+The command to use:
+`perl protein_CG_MD.pl [path_to_protein_file]`  
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
