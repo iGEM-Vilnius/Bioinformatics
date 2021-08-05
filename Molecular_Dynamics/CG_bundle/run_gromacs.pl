@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-# Script written accordingly http://cgmartini.nl/index.php/tutorials-general-introduction-gmx5/proteins-gmx5#soluble-martini
+# Script written in regards of http://cgmartini.nl/index.php/tutorials-general-introduction-gmx5/proteins-gmx5#soluble-martini
 
 # The script should be run in the directory where structure files are found
 # Prerequisites:
