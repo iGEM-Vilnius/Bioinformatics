@@ -7,7 +7,10 @@ be used for molecular dynamics simulations.
 Download and install [Perl](https://www.perl.org/get.html).  
 Install [GROMACS](https://manual.gromacs.org/documentation/current/install-guide/index.html).
 
-DSSP (for coarse-grained molecular dynamics) that can be downloaded from [here](https://github.com/cmbi/dssp).
+DSSP (for coarse-grained molecular dynamics) that can be downloaded using 
+`download_dssp.sh`, thus it would be saved in the required location for the 
+`protein_CG_MD.pl` script. Then follow `dssp` installation instructions that are specified in the 
+README.md file of the [repository](https://github.com/cmbi/dssp). 
 
 ## Atomic simulations
 The files required for atomic molecular dynamics simulations can be found in `atomic` folder. 
