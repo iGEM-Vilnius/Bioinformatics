@@ -21,6 +21,7 @@ par.obj_name = 'fusion'
 parse_parameters.parse_parameters(sys.argv[1], par)
 color_fusion.color_fusion(par)
 # Structural alignment with homologs
-color_fusion.load_templates(par)
+# color_fusion.load_templates(par)
 # Calculate distance between active sites
-calculate_distance.calculate_distance(par)
+for i in range(1, 100):
+    calculate_distance.calculate_distance(par, i)
