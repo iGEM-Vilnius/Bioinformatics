@@ -71,7 +71,7 @@ distance** between active sites of the fused proteins.
 A module that contains a function to parse attributes that are required for other modules.
 
 ### color_fusion.py
-A module that contains fucntions to color fusion protein system: the whole construct, the linker, 
+A module that contains functions to color fusion protein system: the whole construct, the linker, 
 and the active sites of each of the fused proteins.   
 
 ### calculate_distance.py
