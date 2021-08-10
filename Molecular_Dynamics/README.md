@@ -49,8 +49,8 @@ The files required for coarse-grained molecular dynamics simulations can be foun
 [`martinize.py`](http://cgmartini.nl/index.php/tools2/proteins-and-bilayers/204-martinize)
 script adjusted for Python3, water.gro file (downloaded from [link](http://cgmartini.nl/index.php/downloads/example-applications/63-pure-water-solvent) in
 MARTINI 2 [Protein tutorial](http://cgmartini.nl/index.php/tutorials-general-introduction-gmx5/proteins-gmx5) 
-page) and .mdp files: em.mdp, md.mdp were taken from the folder `atomic` that
-is devoted for atomic molecular dynamics simulations and eq.mdp was taken from the worked
+page) and .mdp files: `em.mdp`, `md.mdp` were taken from the folder `atomic` that
+is devoted for atomic molecular dynamics simulations and `eq.mdp` was taken from the worked
 files [archyve](http://cgmartini.nl/images/stories/tutorial/2017/protein-tutorial-v2016.3/soluble-protein/ubiquitin.tgz)
 that can be found in the tutorial link.
 
