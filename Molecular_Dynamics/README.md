@@ -1,4 +1,4 @@
-# Molecular Dynamics Running Script
+# Molecular dynamics scripts
 
 This directory contains molecular dynamics bundle with .mdp files and Perl scripts that can 
 be used for molecular dynamics simulations.
