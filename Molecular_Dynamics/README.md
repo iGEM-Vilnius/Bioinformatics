@@ -45,9 +45,9 @@ The command to use:
 
 ## Coarse-grained simulations
 The files required for coarse-grained molecular dynamics simulations can be found in 
-`CG` folder. This folder contains protein_CG_MD.pl script that uses
+`CG` folder. This folder contains `protein_CG_MD.pl` script that uses
 [`martinize.py`](http://cgmartini.nl/index.php/tools2/proteins-and-bilayers/204-martinize)
-script adjusted for Python3, water.gro file (downloaded from [link](http://cgmartini.nl/index.php/downloads/example-applications/63-pure-water-solvent) in
+script adjusted for Python3, `water.gro` file (downloaded from [link](http://cgmartini.nl/index.php/downloads/example-applications/63-pure-water-solvent) in
 MARTINI 2 [Protein tutorial](http://cgmartini.nl/index.php/tutorials-general-introduction-gmx5/proteins-gmx5) 
 page) and .mdp files: `em.mdp`, `md.mdp` were taken from the folder `atomic` that
 is devoted for atomic molecular dynamics simulations and `eq.mdp` was taken from the worked
