@@ -1,10 +1,10 @@
 # Fusion PyMOL
-This directory contains several tools to use for fusion protein processing. 
+This directory contains a library that is created to use for fusion protein processing. 
 
 ## Prerequisites
 
 Download and install [PyMOL](https://pymol.org/2/?#download) in your system. The tools were 
-tested on MacOS Big Sur 11.1, yet these scripts should work on Linux systems as well. 
+tested on MacOS Big Sur 11.1, yet these functions should work on Linux systems as well. 
 
 ## Usage
 
