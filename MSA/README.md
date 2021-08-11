@@ -20,7 +20,7 @@ Inputs for this program are:
 These .a3m files can be generated using external software. The program was tested with MSA
 files that were generated using [HHblits](https://toolkit.tuebingen.mpg.de/tools/hhblits) program. 
 
-`perl GenFusMSA.pl 4CL_fullQT.a3m CHS_fullQT.a3m EAAAK 1`  
+`perl GenFusMSA.pl -i1 4CL_fullQT.a3m -i2 CHS_fullQT.a3m -l EAAAK -n 1`  
 
 This command generates MSA file for 4CL and CHS linked via prolonged EAAAK linker. The 
 option to choose prolonged linker by glycines (by 10 on both sides of the linker) is set by the 
