@@ -27,12 +27,7 @@ def calculate_distance(par, dist):
     d = cmd.distance('distance_COM', COM_1, COM_2)
     dist[0] = d
     
-    # Creating a pseudo atom for distance calculation between atoms
-#    cmd.create('ov_COM_1', COM_1, 0, state)
-#    cmd.create('ov_COM_2', COM_2, 0, state)
-#    cmd.delete(COM_1)
-#    cmd.delete(COM_2)
-    
+    # Write distance
     cmd.set('label_color', par.colors[0], 'distance_COM')
     cmd.color(par.colors[4], 'distance_COM')
     
@@ -64,6 +59,7 @@ def calculate_distance_multiple_states(par, dist):
         else:
             dist[i-1] = cmd.get_distance(atom1="/ov_COM_1/PSDO/P/PSD`1/PS"+str(i), atom2="/ov_COM_2/PSDO/P/PSD`1/PS"+str(i), state=i)
     
+    # Visualize distances 
     cmd.set('label_color', par.colors[0], 'distance_COM')
     cmd.color(par.colors[4], 'distance_COM')
     
