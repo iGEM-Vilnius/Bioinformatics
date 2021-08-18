@@ -11,7 +11,7 @@ tested on MacOS Big Sur 11.1, yet these functions should work on Linux systems a
 The visualisation of protein system is done by using:  
 `pymol visualise.py -- [parameter_file]`  
 
-The calculation between active sites is performed by using:  
+The calculation of distance between active sites is performed by using:  
 `pymol calculate.py -- [parameter_file]`  
 The statistics of the distance can be found in `tmp/distance.txt` file.
 
