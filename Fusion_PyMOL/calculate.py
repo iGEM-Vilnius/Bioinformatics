@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import pymol
-#from pymol import cmd
 import os
 import subprocess
 
