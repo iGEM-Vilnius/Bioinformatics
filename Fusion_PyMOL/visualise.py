@@ -21,15 +21,16 @@ from functions import parse_parameters, color_fusion, calculate_distance
 #   * hex codes of the colors in the palette
 # More information about the format of parameters file can be found: https://github.com/iGEM-Vilnius/Bioinformatics/tree/master/Fusion_PyMOL
 
+# Parse parameters
 class Parameters():
     pass
 
 par = Parameters()
 par.obj_name = 'fusion'
 
-# Perform coloring
 parse_parameters.parse_parameters(sys.argv[1], par)
 
+# Perform coloring
 color_fusion.color_fusion(par)
 
 # Structural alignment with homologs
