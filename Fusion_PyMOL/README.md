@@ -34,6 +34,7 @@ active site are separated with `+`, different active sites are separated with wh
 * `linker:` residues that compose the linker  
 * `linker_repeats:` how many times the `linker` residues are used  
 * `colors:`  colors given in hex code that are used to color the system (more information below)
+* `output_distance_file:`  path to the output file that contains statistics about distance.
 
 It should be noted that after each attribute a colon `:` symbol should be added.  
 Additionally there is an example of such file (`param.txt`) deposited in this repository:  
@@ -53,6 +54,7 @@ linker: GSG
 linker_repeats: 1
 
 colors: 0x002733 0x054d54 0x1b8489 0xef9f8d 0xfccec0 0x00fbff
+output_distance_file: ./tmp/distances.txt
 ```
 
 ### Colors
