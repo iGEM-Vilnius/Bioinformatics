@@ -46,4 +46,5 @@ else:
     calculate_distance.calculate_distance(par, dist)
 
 # Write distance statistics to file
-calculate_distance.write_to_file(par, dist, "./tmp/distances.txt")
+#calculate_distance.write_to_file(par, dist, "./tmp/distances.txt")
+calculate_distance.write_to_file(par, dist, par.output_distance_file)
