@@ -27,9 +27,9 @@ class Parameters():
 par = Parameters()
 par.obj_name = 'fusion'
 
-# Perform coloring
 parse_parameters.parse_parameters(sys.argv[1], par)
 
+# Perform coloring
 color_fusion.color_fusion(par)
 
 # Calculate distance between active sites
