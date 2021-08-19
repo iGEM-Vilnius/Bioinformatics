@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 import pymol
-#from pathlib import Path
-from pymol import cmd
-import os
-import subprocess
 
 from functions import parse_parameters, color_fusion, calculate_distance
 
