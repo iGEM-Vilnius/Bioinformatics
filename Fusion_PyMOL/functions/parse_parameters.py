@@ -35,6 +35,10 @@ def parse_parameters(file, par):
         # Process colors
         if(elements[0] == 'colors:'):
             par.colors = elements[1:]
+            
+        # Process output distance file
+        if(elements[0] == 'output_distance_file:'):
+            par.output_distance_file = elements[1]
 
     par.linker_length = len(par.linker) * int(par.linker_repeats)
     f.close()
