@@ -37,7 +37,7 @@ active site are separated with `+`, different active sites are separated with wh
 * `output_distance_file:`  path to the output file that contains statistics about distance
 
 It should be noted that after each attribute a colon `:` symbol should be added.  
-Additionally there is an example of such file (`param.txt`) deposited in this repository:  
+Additionally, there is an example of such file (`param.txt`) deposited in this repository:  
 
 ```
 fusion: PDB/GSG_after_md.pdb
