@@ -16,9 +16,6 @@ def color_fusion(par):
         cmd.set_name('sele', active_site_name)
         cmd.color(par.colors[4], active_site_name)
 
-    # Get length of the whole system
-    # print( len( set( [(i.chain,i.resi,i.resn) for i in cmd.get_model(obj_name).atom] ) ))
-
     # Color the residues of the linker
     first_linker_res = int(par.first_length)+1
     last_linker_res = int(par.first_length)+par.linker_length
@@ -51,7 +48,6 @@ def color_fusion(par):
 # Subroutine that loads template files
 def load_templates(par):
     cmd.load(par.first_protein)
-#    print(os.path.splitext(first_protein)[0])
     first_prot_name = Path(par.first_protein).stem
     cmd.color(par.colors[3], first_prot_name)
     cmd.load(par.second_protein)
