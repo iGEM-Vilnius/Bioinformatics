@@ -31,7 +31,7 @@ parse_parameters.parse_parameters(sys.argv[1], par)
 color_fusion.color_fusion(par)
 
 # Calculate distance between active sites
-command = "grep 'MODEL' "+ par.fusion_file + " | wc -l"
+command = "grep 'ENDMDL' "+ par.fusion_file + " | wc -l"
 states = int(subprocess.getstatusoutput(command)[1])
 dist = [None] * states
 
