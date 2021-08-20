@@ -3,6 +3,15 @@
 # Do parsing of such parameters that could be passed by file
 def parse_parameters(file, par):
     f = open(file, 'r')
+    
+    par.fusion_file = None
+    par.output_distance_file = None
+    par.first_protein = par.active_site_residues_1 = None
+    par.first_length = 0
+    par.second_protein = par.active_site_residues_2 = None
+    par.second_length = 0
+    par.linker = par.colors = None
+    par.linker_repeats = 0
 
     for line in f:
         line = line.replace('\n', '')
@@ -39,7 +48,7 @@ def parse_parameters(file, par):
         # Process output distance file
         if(elements[0] == 'output_distance_file:'):
             par.output_distance_file = elements[1]
-
+            
     par.linker_length = len(par.linker) * int(par.linker_repeats)
     f.close()
 
