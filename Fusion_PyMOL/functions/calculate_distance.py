@@ -63,10 +63,14 @@ def calculate_distance_multiple_states(par, dist):
     cmd.set('label_color', par.colors[0], 'distance_COM')
     cmd.color(par.colors[4], 'distance_COM')
     
+    cmd.show('spheres', 'all')
     cmd.center(par.obj_name)
     cmd.zoom(par.obj_name)
 
 def write_to_file(par, dist, file):
+    if file is None:
+        file = "./tmp/distances.txt"
+    
     outFile = open(file, 'w')
     
     outFile.write("%s\n" % par.fusion_file)
