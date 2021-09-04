@@ -25,7 +25,7 @@ def calculate_distance(par, dist):
     
     # Creating a distance object for visualisation in PyMOL
     d = cmd.distance('distance_COM', COM_1, COM_2)
-    dist[0] = d
+    #dist[0] = d
     
     # Write distance
     cmd.set('label_color', par.colors[0], 'distance_COM')
@@ -74,9 +74,10 @@ def write_to_file(par, dist, file):
     outFile = open(file, 'w')
     
     outFile.write("%s\n" % par.fusion_file)
-    outFile.write("Minimum distance: %s\n" % (min(dist)))
-    outFile.write("Maximum distance: %s\n" % (max(dist)))
-    outFile.write("Average distance: %s\n" % (mean(dist)))
+    if(dist):
+        outFile.write("Minimum distance: %s\n" % (min(dist)))
+        outFile.write("Maximum distance: %s\n" % (max(dist)))
+        outFile.write("Average distance: %s\n" % (mean(dist)))
     
     outFile.close()
         
