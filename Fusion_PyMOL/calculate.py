@@ -33,13 +33,14 @@ color_fusion.color_fusion(par)
 # Calculate distance between active sites
 command = "grep 'ENDMDL' "+ par.fusion_file + " | wc -l"
 states = int(subprocess.getstatusoutput(command)[1])
-dist = [None] * states
 
 # Choose the according method for calculation
 if states > 1:
+    dist = [None] * states
     print("Multiple states")
     calculate_distance.calculate_distance_multiple_states(par, dist)
 else:
+    dist = []
     print("One state")
     calculate_distance.calculate_distance(par, dist)
 
