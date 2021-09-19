@@ -12,12 +12,13 @@ use Getopt::Long;
 
 # Output: one MSA file (.a3m) for fusion protein modelling
 
-# Example run: ./GenFusMSA.pl 4CL_fullQT.a3m CHS_fullQT.a3m EAAAK 1
+# Example run:
+# ./GenFusMSA.pl -i1 A3M/4CL_fullQT.a3m -i2 A3M/CHS_fullQT.a3m -l EAAAK -n 1
 # After running this command the prolonged MSA when linker is EAAAK is printed
 # to the terminal window.
 
 # Subroutine that prints the usage message
-sub usage(){
+sub usage( ) {
     my $EOF = "$0 extracts sequences that share the same TaxID ".
         "from two MSA files.\n".
         "usage: $0 -i1 file -i2 file -l str [-n int] [p int] [-h]\n".
@@ -34,6 +35,19 @@ sub usage(){
     exit;
 }
 
+# Subroutine that reads the first input file
+sub get_max_length( % ) {
+    my %matched = @_;
+    my $max_length = 0;
+    for my $id ( keys( %matched ) ){
+        if( length( $matched{$id} ) > $max_length ) {
+            $max_length = length( $matched{$id} )
+        }
+    }
+    return $max_length;
+}
+
+
 # Collecting options
 GetOptions(
     'i1=s' => \my $in1,
@@ -42,15 +56,15 @@ GetOptions(
     'n=s' => \my $n,
     'prolonged=s' => \my $prolonged,
     'help=s' => \my $help
-) or usage();
+) or usage( );
 
 # Checking if all positional arguments are present or help is called
-if((!defined($in1))|(!defined($in2))|(!defined($linker))|(defined($help))){
+if((!defined($in1))|(!defined($in2))|(!defined($linker))|(defined($help))) {
     usage();
 }
 
-my %taxid_1 = ();
-my %matched = ();
+my %taxid_1 = ( );
+my %matched = ( );
 
 my $num1 = 0;
 my $num2 = 0;
@@ -62,9 +76,9 @@ while( <$inp> ) {
     /^>?([^\n]*)\n([^>]*)/;
     my( $header, $sequence ) = ( $1, $2 );
     $sequence =~ s/\s//g;
-    if($sequence){
+    if( $sequence ){
         $num1 += 1;
-        if($num1 == 1){
+        if( $num1 == 1 ){
             my $taxid = 'query';
             $taxid_1{$taxid} = $sequence;
         }else{
@@ -78,7 +92,7 @@ while( <$inp> ) {
 close($inp);
 
 # Reading the second input .a3m file
-open($inp, '<', $in2) || die "$in2 file not found\n";;
+open(my $inp, '<', $in2) || die "$in2 file not found\n";;
 while( <$inp> ) {
     /^>?([^\n]*)\n([^>]*)/;
     my( $header, $sequence ) = ( $1, $2 );
@@ -106,13 +120,10 @@ while( <$inp> ) {
 close($inp);
 
 # Determining the length of the longest construct
-my $max_length = 0;
-for my $id (keys(%matched)){
-    $max_length = length($matched{$id}) if(length($matched{$id}) > $max_length);
-}
+my $max_length = get_max_length( %matched );
 
 # Adding the linker to the output MSA
-for my $id (reverse sort keys(%matched)){
+for my $id ( reverse sort keys(%matched) ){
     my $fusion = substr($matched{$id}, 0, length($taxid_1{$id}));
     if($prolonged){
         $fusion .= 'G' x 10;
